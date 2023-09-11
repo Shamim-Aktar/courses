@@ -4,15 +4,17 @@ import {BrowserRouter as Router} from 'react-router-dom'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "./index.css"
 import App from './components/App';
+import configureStore from './redux/configureStore';
+import {Provider} from 'react-redux'
 //import ReactDOM from 'react-dom/client';
+const store=configureStore()
 
-function Hi(){
-    return <h1>hi</h1>
-}
 
 render(
+    <Provider store={store}>
 <Router>
     <App/>
-</Router>, 
+</Router>
+</Provider>,
 document.getElementById('app'))
 
